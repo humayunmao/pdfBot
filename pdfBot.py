@@ -1,5 +1,4 @@
 # Import necessary libraries
-from dotenv import load_dotenv
 import os
 import re
 from PyPDF2 import PdfReader
@@ -16,18 +15,10 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from docx import Document
 from docx.shared import Pt
 
+# Set the Gemini API key directly
+GEMINI_API_KEY = "AIzaSyCezBu6X7Pwc2Uii-qtinNQvhjUZCRTQwI"
 
-
-# Load environment variables
-try:
-    load_dotenv()
-    GEMINI_API_KEY = "AIzaSyCezBu6X7Pwc2Uii-qtinNQvhjUZCRTQwI"
-    if not GEMINI_API_KEY:
-        raise ValueError("GEMINI_API_KEY is not set in the environment variables.")
-except Exception as e:
-    st.error(f"Error loading environment variables: {e}")
-    GEMINI_API_KEY = None
-
+# Configure the Google Gemini API
 try:
     configure(api_key=GEMINI_API_KEY)
 except Exception as e:
@@ -86,7 +77,7 @@ try:
 except Exception as e:
     st.error(f"Error setting custom CSS: {e}")
 
-# Helper functions
+# Helper functions (unchanged)
 def process_text(text):
     try:
         text_splitter = CharacterTextSplitter(
@@ -170,7 +161,6 @@ def extract_text_from_docx(docx_file):
     except Exception as e:
         st.error(f"Error extracting text from DOCX file: {e}")
         return ""
-
 # Main function
 def main():
     try:
