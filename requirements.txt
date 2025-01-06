@@ -1,0 +1,7 @@
+PyPDF2
+streamlit
+langchain
+langchain_community
+reportlab
+python-docx
+google-generativeai
