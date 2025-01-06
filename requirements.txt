@@ -5,3 +5,4 @@ langchain_community
 reportlab
 python-docx
 google-generativeai
+sentence-transformers
